@@ -17,7 +17,7 @@ function calculateTriangleArea() {
     // show triangle area
 
     const triangleAreaSpan = document.getElementById('triangle-area');
-    areaSpan.innerText = area;
+    triangleAreaSpan.innerText = area;
 
 
 }
@@ -43,4 +43,36 @@ function calculateRectangleArea() {
     const rectangleAreaSpan = document.getElementById('rectangle-area');
     rectangleAreaSpan.innerText = area;
 
+
 }
+    // reusable function 
+    function calculateParallelogramArea() {
+    const base = getInputValue('parallelogram-base');
+    const height = getInputValue ('parallelogram-height');
+    const area = base * height;
+    setInnerText('parallelogram-area', area);
+  }
+
+  function calculateEllipseArea () {
+     const major = getInputValue('ellipse-major-radius');
+     const minor = getInputValue('ellipse-minor-radius');
+     const area = 3.14 * major * minor;
+     setInnerText('ellipse-area', area)
+
+  }
+
+  function getInputValue(inputId) {
+    const inputField = document.getElementById(inputId);
+    const inputFieldValueString = inputField.value;
+    const inputValue = parseFloat(inputFieldValueString);
+    return inputValue;
+
+    
+  }
+
+   function setInnerText (areaId, area) {
+    const element = document.getElementById(areaId);
+    element.innerText = area;
+
+
+   }
